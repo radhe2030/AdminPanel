@@ -1,5 +1,5 @@
 export function initStudentGradeSystem() {
-  const studentName = document.getElementById("studentName");
+  const studentName = document.getElementById("fullName"); // Fixed ID
   const maths = document.getElementById("maths");
   const english = document.getElementById("english");
   const science = document.getElementById("science");
@@ -14,7 +14,6 @@ export function initStudentGradeSystem() {
   let editStudent = null;
   let deleteStudent = null;
 
-  // Load students from localStorage
   let students = JSON.parse(localStorage.getItem("students") || "[]");
 
   function saveStudents() {
@@ -23,14 +22,13 @@ export function initStudentGradeSystem() {
 
   function showToast(message, grade) {
     toast.textContent = message;
-    // Set color based on grade
     const gradeColors = {
       A: "#2ecc71",
       B: "#3498db",
       C: "#e67e22",
       D: "#f1c40f",
       F: "#e74c3c",
-      Pass: "#7ff5f3ff",
+      Pass: "#1abc9c",
     };
     toast.style.backgroundColor = gradeColors[grade] || "#17df49";
     toast.style.color = "#010101ff";
@@ -63,17 +61,34 @@ export function initStudentGradeSystem() {
         { label: "Grade", value: student.grade },
       ];
 
+      // Determine color once per student
+      const gradeColor =
+        student.grade === "A"
+          ? "green"
+          : student.grade === "B"
+          ? "blue"
+          : student.grade === "C"
+          ? "orange"
+          : student.grade === "D"
+          ? "goldenrod"
+          : student.grade === "F"
+          ? "red"
+          : "#1abc9c";
+
       fields.forEach((f) => {
         const fieldDiv = document.createElement("div");
         const labelSpan = document.createElement("span");
-        if (calculateGrade === "A") {
-          fields.style.color = "Green";
-        }
+        const valueSpan = document.createElement("span");
+
         labelSpan.classList.add("label");
         labelSpan.textContent = f.label + " —";
-        const valueSpan = document.createElement("span");
         valueSpan.classList.add("value");
         valueSpan.textContent = f.value;
+
+        // Apply grade color to all fields
+        labelSpan.style.color = gradeColor;
+        valueSpan.style.color = gradeColor;
+
         fieldDiv.appendChild(labelSpan);
         fieldDiv.appendChild(valueSpan);
         div.appendChild(fieldDiv);
@@ -96,6 +111,7 @@ export function initStudentGradeSystem() {
 
       const delBtn = document.createElement("button");
       delBtn.innerHTML = `<i class="fas fa-trash"></i>`;
+      delBtn.classList.add("delete");
       delBtn.addEventListener("click", () => {
         deleteStudent = student;
         deleteModal.style.display = "flex";
