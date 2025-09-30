@@ -1,0 +1,115 @@
+/* =============================
+   Base
+============================= */
+.calculator-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: calc(100vh - 60px);
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.calculator {
+    background-color: var(--bg-color);
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    min-width: 300px;
+    max-width: 360px;
+    width: 100%;
+}
+
+/* Display */
+#display {
+    width: 90%;
+    height: 60px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #040404;
+    text-align: right;
+    background-color: var(--display-bg);
+    color: var(--display-text);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Buttons Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Number Buttons */
+.btn {
+    padding: 18px;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn:hover { background-color: var(--btn-hover); }
+
+/* Operator Buttons */
+.operator {
+    background-color: var(--operator-bg);
+    color: #fff;
+}
+.operator:hover { background-color: var(--operator-hover); }
+
+/* Clear and Equals */
+#clear {
+    background-color: #e74c3c;
+    color: #fff;
+}
+#clear:hover { background-color: #c0392b; }
+
+#equals {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+}
+#equals:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+/* =============================
+   Responsive
+============================= */
+@media (max-width: 1024px) {
+    .calculator-container { padding: 30px; }
+    .calculator { min-width: 280px; }
+}
+@media (max-width: 768px) {
+    .calculator-container { justify-content: center; padding: 20px; }
+}
+
+/* =============================
+   Light & Dark Mode Variables
+============================= */
+body.light {
+    --bg-color: #f4f6f9;
+    --text-color: #2c3e50;
+    --btn-bg: #ffffff;
+    --btn-hover: #e0e0e0;
+    --operator-bg: #f39c12;
+    --operator-hover: #e67e22;
+    --display-bg: #ffffff;
+    --display-text: #2c3e50;
+}
+
+body.dark {
+    --bg-color: #1e1e2f;
+    --text-color: #f5f5f5;
+    --btn-bg: #2c2c3a;
+    --btn-hover: #3a3a50;
+    --operator-bg: #ff9f43;
+    --operator-hover: #e67e22;
+    --display-bg: #2c2c3a;
+    --display-text: #f5f5f5;
+}

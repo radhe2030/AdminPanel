@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="light">
+
+    <!-- Header -->
+    <header class="header">
+        <h2>My Projects</h2>
+        <div class="header-icons">
+            <button id="themeToggle" class="theme-toggle-btn">
+                <i class="fa-regular fa-sun"></i>
+            </button>
+            <i class="hamburger-icon fa fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#" onclick="loadPage('pages/calculator.html')">
+                    <i class="fas fa-calculator"></i> Calculator</a>
+            </li>
+            <li><a href="#" onclick="loadPage('pages/todo.html')">
+                    <i class="fas fa-list-check"></i> To-Do List</a>
+            </li>
+            <li><a href="#" onclick="loadPage('pages/student.html')">
+                    <i class="fas fa-graduation-cap"></i> Grade System</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div id="mainContainer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 My Projects | Thakor Meet</p>
+    </footer>
+
+    <!-- Main JS -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

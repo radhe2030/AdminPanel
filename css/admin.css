@@ -1,0 +1,208 @@
+/* ============================ Reset ============================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ============================ Theme Variables ============================ */
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #2c3e50;
+  --header-bg: #0984e3;
+  --sidebar-bg: #2c3e50;
+  --footer-bg: #3498db;
+  --link-color: white;
+  --link-hover: rgba(255, 255, 255, 0.15);
+
+  /* Student grade system */
+  --todo-bg: #fff;
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --item-bg: #f0f0f0;
+}
+body.dark {
+  --bg-color: #181a20;
+  --text-color: #f1f1f1;
+  --header-bg: #0f1a2b;
+  --sidebar-bg: #1f2230;
+  --footer-bg: #0f1a2b;
+  --link-color: #f1f1f1;
+  --link-hover: rgba(255, 255, 255, 0.2);
+
+  --todo-bg: #1e1e2f;
+  --primary-color: #5dade2;
+  --primary-hover: #3498db;
+  --item-bg: #2c2c3a;
+}
+
+/* ============================ Layout ============================ */
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 60px 1fr 40px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--header-bg);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+}
+
+.header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle-btn {
+  background: none !important;
+  border: none;
+  font-size: 1.4rem;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(20deg);
+}
+
+/* Hamburger */
+.hamburger-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  visibility: hidden;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--sidebar-bg);
+  color: var(--link-color);
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.sidebar a:hover {
+  background: var(--link-hover);
+  transform: translateX(5px);
+}
+
+/* Main */
+.main {
+  grid-area: main;
+  background-color: var(--bg-color);
+  padding: 80px 20px 20px 20px; /* leave space for header */
+  overflow-y: auto;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background-color: var(--footer-bg);
+  color: var(--link-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* ============================ Responsive ============================ */
+@media (max-width: 1024px) {
+  body {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "header header"
+      "main main"
+      "footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  .header {
+    width: 90%;
+  }
+  .hamburger-icon {
+    display: block;
+    visibility: visible;
+  }
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 60px);
+    transform: translateX(-100%);
+    z-index: 1000;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .main {
+    padding: 80px 10px 20px 10px;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+  }
+}
