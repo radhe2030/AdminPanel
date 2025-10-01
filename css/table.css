@@ -4,10 +4,9 @@
 
 .table-generator {
   max-width: 900px;
-  margin: 10px ;
+  margin: 20px;
   padding: 20px;
   background-color: var(--todo-bg);
-  margin-bottom: 10%;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   transition: background 0.3s, color 0.3s;
