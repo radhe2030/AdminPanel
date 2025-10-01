@@ -4,7 +4,7 @@
 
 .table-generator {
   max-width: 900px;
-  margin: 0 auto 20px auto;
+  margin: 20px;
   padding: 20px;
   background-color: var(--todo-bg);
   border-radius: 12px;
