@@ -48,3 +48,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const lastPage = localStorage.getItem("currentPage") || "pages/calculator.html";
   loadPage(lastPage);
 });
+
+$(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').fadeOut('slow');
+	},3500);
+});
