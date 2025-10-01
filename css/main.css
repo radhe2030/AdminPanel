@@ -1,152 +1,366 @@
-/* =============================
-   Global Reset
-============================= */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-    transition: background 0.3s ease, color 0.3s ease;
+/* ==========================
+   Multiplication Table CSS
+========================= */
+
+/* Main Container */
+.table-generator {
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* =============================
-   Theme Variables
-============================= */
-:root {
-    /* Light Theme */
-    --bg-color: #f4f6f9;
-    --text-color: #2c3e50;
-    --header-bg: #0984e3;
-    --sidebar-bg: #2c3e50;
-    --footer-bg: #3498db;
-    --link-color: white;
-    --link-hover: rgba(255,255,255,0.15);
-    --btn-bg: #ffffff;
-    --btn-hover: #e0e0e0;
-    --operator-bg: #f39c12;
-    --operator-hover: #e67e22;
-    --display-bg: #ffffff;
-    --display-text: #2c3e50;
-}
-body.light {
-    --bg-color: #f4f6f9;
-    --text-color: #2c3e50;
-    --btn-bg: #ffffff;
-    --btn-hover: #e0e0e0;
-    --operator-bg: #f39c12;
-    --operator-hover: #e67e22;
-    --display-bg: #ffffff;
-    --display-text: #2c3e50;
+/* Dark Mode for Table Container */
+.dark-theme .table-generator {
+  background-color: #353b48;
+  color: #f1f2f6;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-body.dark {
-    --bg-color: #181a20;
-    --text-color: #f1f1f1;
-    --header-bg: #0f1a2b;
-    --sidebar-bg: #1f2230;
-    --footer-bg: #0f1a2b;
-    --link-color: #f1f1f1;
-    --link-hover: rgba(255,255,255,0.2);
-    --btn-bg: #2c2c3a;
-    --btn-hover: #3a3a50;
-    --operator-bg: #ff9f43;
-    --operator-hover: #e67e22;
-    --display-bg: #2c2c3a;
-    --display-text: #f5f5f5;
+.table-generator h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0984e3;
 }
 
-/* =============================
-   Body
-============================= */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+.dark-theme .table-generator h2 {
+  color: #00a8ff;
 }
 
-/* =============================
-   Headings
-============================= */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-color);
-    font-weight: 600;
+/* ==========================
+   Form & Inputs
+========================= */
+.table-generator form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-/* =============================
-   Links
-============================= */
-a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-a:hover {
-    color: var(--link-color);
-    background: var(--link-hover);
+.form-row {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
 }
 
-/* =============================
+.table-generator label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.table-generator input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 35px;
+  font-size: 1rem;
+}
+
+.dark-theme .table-generator input {
+  background-color: #2f3640;
+  color: #f1f2f6;
+  border-color: #555;
+}
+
+/* ==========================
    Buttons
-============================= */
-button {
-    font-family: "Poppins", sans-serif;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-button:hover {
-    transform: translateY(-2px);
-}
-
-/* =============================
-   Inputs / Textarea
-============================= */
-input, textarea {
-    font-family: "Poppins", sans-serif;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    transition: all 0.2s ease;
-}
-input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--header-bg);
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+========================= */
+.table-generator form button {
+  margin-top: 25px;   /* only form buttons get margin */
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: #0984e3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* =============================
-   Flex Helpers
-============================= */
-.flex { display: flex; align-items: center; justify-content: center; gap: 10px; }
-.flex-start { display: flex; align-items: flex-start; justify-content: flex-start; gap: 10px; }
-.flex-between { display: flex; align-items: center; justify-content: space-between; }
-
-/* =============================
-   Containers
-============================= */
-.container { padding: 20px; width: 100%; box-sizing: border-box; }
-
-/* =============================
-   Card
-============================= */
-.card {
-    background-color: var(--bg-color);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
+.table-generator form button:hover {
+  background-color: #007bff;
 }
 
-/* =============================
-   Scrollbar
-============================= */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background-color: var(--btn-bg); border-radius: 10px; }
+/* Theme toggle button should not have margin */
+.theme-toggle {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-/* =============================
-   Responsive Utilities
-============================= */
-@media (max-width: 1024px) { .container { padding: 15px; } }
-@media (max-width: 768px) { .container { padding: 10px; } }
+.theme-toggle:hover {
+  background: #333;
+}
+
+/* Dark theme for buttons */
+.dark-theme .table-generator form button {
+  background-color: #44bd32;
+}
+
+.dark-theme .table-generator form button:hover {
+  background-color: #32cd32;
+}
+
+.dark-theme .theme-toggle {
+  background: #00a8ff;
+  color: #fff;
+}
+
+.dark-theme .theme-toggle:hover {
+  background: #0984e3;
+}
+
+/* ==========================
+   Table Output Grid
+========================= */
+.table-output {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  max-width: 100%;
+}
+
+.table-output .single-table {
+  text-align: center;
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .table-output .single-table {
+  background-color: #353b48;
+  color: #dcdde1;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.table-output .single-table h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #0984e3;
+}
+
+.dark-theme .table-output .single-table h4 {
+  color: #00a8ff;
+}
+
+.table-output .single-table p {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.dark-theme .table-output .single-table p {
+  color: #f1f2f6;
+}
+
+/* ==========================
+   Responsive
+========================= */
+@media (max-width: 1024px) {
+  .table-output {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .table-output {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .table-output {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==========================
+   Multiplication Table CSS
+========================= */
+
+/* Main Container */
+.table-generator {
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode for Table Container */
+.dark-theme .table-generator {
+  background-color: #353b48;
+  color: #f1f2f6;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.table-generator h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0984e3;
+}
+
+.dark-theme .table-generator h2 {
+  color: #00a8ff;
+}
+
+/* ==========================
+   Form & Inputs
+========================= */
+.table-generator form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.form-row {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-generator label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.table-generator input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 35px;
+  font-size: 1rem;
+}
+
+.dark-theme .table-generator input {
+  background-color: #2f3640;
+  color: #f1f2f6;
+  border-color: #555;
+}
+
+/* ==========================
+   Buttons
+========================= */
+.table-generator form button {
+  margin-top: 25px;   /* only form buttons get margin */
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: #0984e3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.table-generator form button:hover {
+  background-color: #007bff;
+}
+
+/* Theme toggle button should not have margin */
+.theme-toggle {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #333;
+}
+
+/* Dark theme for buttons */
+.dark-theme .table-generator form button {
+  background-color: #44bd32;
+}
+
+.dark-theme .table-generator form button:hover {
+  background-color: #32cd32;
+}
+
+.dark-theme .theme-toggle {
+  background: #00a8ff;
+  color: #fff;
+}
+
+.dark-theme .theme-toggle:hover {
+  background: #0984e3;
+}
+
+/* ==========================
+   Table Output Grid
+========================= */
+.table-output {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  max-width: 100%;
+}
+
+.table-output .single-table {
+  text-align: center;
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .table-output .single-table {
+  background-color: #353b48;
+  color: #dcdde1;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.table-output .single-table h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #0984e3;
+}
+
+.dark-theme .table-output .single-table h4 {
+  color: #00a8ff;
+}
+
+.table-output .single-table p {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.dark-theme .table-output .single-table p {
+  color: #f1f2f6;
+}
+
+/* ==========================
+   Responsive
+========================= */
+@media (max-width: 1024px) {
+  .table-output {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .table-output {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .table-output {
+    grid-template-columns: 1fr;
+  }
+}

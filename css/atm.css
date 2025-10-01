@@ -1,0 +1,137 @@
+/* ================== ATM Container ================== */
+.atm-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+body.dark .atm-container {
+  background-color: #2c2c3a;
+  color: #f5f5f5;
+}
+
+/* Header */
+.atm-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.atm-container h2 i {
+  color: #3498db;
+  margin-right: 10px;
+}
+
+/* Menu Buttons */
+.atm-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.atm-menu button {
+  flex: 1 1 30%;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.atm-menu button:hover {
+  background-color: #2980b9;
+}
+
+/* Action Section */
+.atm-action {
+  margin: 15px 0;
+}
+
+/* Result Section */
+.atm-result {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-height: 30px;
+}
+
+/* Input fields */
+.atm-action input {
+  padding: 10px 12px;
+  width: 70%;
+  max-width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+body.dark .atm-action input {
+  background-color: #3a3a4e;
+  color: #f5f5f5;
+  border: 1px solid #555;
+}
+
+/* Submit button */
+.atm-action button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #27ae60;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.atm-action button:hover {
+  background-color: #1e8449;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .atm-menu {
+    flex-direction: column;
+  }
+
+  .atm-menu button {
+    flex: 1 1 100%;
+  }
+
+  .atm-action input {
+    width: 100%;
+  }
+}
+
+
+.atm-toast {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  background-color: #2ecc71; /* success default */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.atm-toast.error {
+  background-color: #e74c3c;
+}
+
+.atm-toast.info {
+  background-color: #3498db;
+}

@@ -1,0 +1,153 @@
+/* ================== Age Calculator Card ================== */
+.age-container {
+  max-width: 700px;
+  margin: 40px;
+  background-color: #fff; /* Light mode */
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+body.dark .age-container {
+  background-color: #2c2c3a; /* Dark mode */
+  color: #f5f5f5;
+}
+
+/* ================== Header ================== */
+.age-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.age-container h2 i {
+  margin-right: 10px;
+  color: #3498db;
+}
+
+/* ================== Input Section ================== */
+.input-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.input-section .born,
+.input-section .present {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.input-section select {
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+body.dark .input-section select {
+  background-color: #3a3a4e;
+  color: #f5f5f5;
+  border: 1px solid #555;
+}
+
+/* ================== Calculate Button ================== */
+#calculateBtn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#calculateBtn:hover {
+  background-color: #2980b9;
+}
+
+/* ================== Results Section ================== */
+.results-section {
+  max-width: 700px;
+  margin: 20px 0px 0px 4%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.results-section div {
+  flex: 1 1 18%;
+  background-color: #eaf2f8; /* Light mode */
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+body.dark .results-section div {
+  background-color: #3a3a4e; /* Dark mode */
+}
+
+.results-section div strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.results-section div span {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 768px) {
+  .input-section {
+    flex-direction: column;
+  }
+  .age-container h2 {
+  text-align: center;
+  font-size:large;
+}
+
+  .input-section .born,
+  .input-section .present {
+    flex: 1 1 100%;
+  }
+
+  .results-section {
+    flex-direction: column;
+  }
+
+  .results-section div {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .age-container {
+    padding: 20px 15px;
+  }
+
+  #calculateBtn {
+    font-size: 1rem;
+  }
+
+  .results-section div {
+    padding: 12px;
+  }
+}

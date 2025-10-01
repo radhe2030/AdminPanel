@@ -2,6 +2,9 @@ import { initTodo } from "./todo.js";
 import { initHamburger, initTheme } from "./admin.js";
 import { initCalculator } from "./calculator.js";
 import { initStudentGradeSystem } from "./student.js";
+import { initAgeCalculator } from "./age.js"; // if you added the age calculator
+import { initATM } from "./atm.js"; // <-- Import ATM
+import { initTableGenerator } from "./table.js";
 
 // Initialize admin panel (hamburger & theme)
 initHamburger();
@@ -22,7 +25,7 @@ window.loadPage = async function (url) {
     // Save current page in localStorage
     localStorage.setItem("currentPage", url);
 
-    // Apply current theme to container only
+    // Apply current theme to loaded content
     const theme = document.body.className || "light";
     container.classList.remove("light", "dark");
     container.classList.add(theme);
@@ -31,9 +34,12 @@ window.loadPage = async function (url) {
     if (url.includes("calculator.html")) initCalculator();
     else if (url.includes("todo.html")) initTodo();
     else if (url.includes("student.html")) initStudentGradeSystem();
+    else if (url.includes("age.html")) initAgeCalculator(); // if you have age calculator page
+    else if (url.includes("atm.html")) initATM();
+    else if (url.includes("table.html")) initTableGenerator();
   } catch (err) {
     console.error("Failed to load page:", err);
-    container.innerHTML = `<p style="color:red;">Failed to load page.</p>`;
+    container.innerHTML = `<p style="color:red; text-align:center; margin-top:20px;">Failed to load page.</p>`;
   }
 };
 
